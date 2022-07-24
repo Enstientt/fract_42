@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 00:12:39 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/24 19:31:34 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:18:53 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	draw_set(t_fract *t);
 void	iter_loop_mandelbrot(t_fract *t);
 void	iter_loop_bsh(t_fract *t);
 void	set_color(t_fract *t, int color);
+void    switcher(int keycode, t_fract *t);
 void	map(t_fract *t);
 void	zoom(t_fract *t, double x, double y, double zoom);
 void	mlx_ho(t_fract *t);

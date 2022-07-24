@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:21:15 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/24 19:53:10 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:29:37 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,20 @@ int	key_handler(int keycode, t_fract *t)
 		iter_handler(keycode, t);
 	if (keycode == 8)
 		color_handler(t);
-	if (keycode == 49)
-		t->stop = 1;
+	if (keycode == 49 && ft_strcmp(t->set, "Julia") == 0)
+	{
+		if (t->stop)
+			t->stop = 0;
+		else
+			t->stop = 1;
+	}
+	if (keycode == 11 || keycode == 46 || keycode == 38)
+		switcher(keycode, t);
+	if (keycode == 34)
+	{
+		init_env(t, t->set);
+		draw_set(t);
+	}
 	return (1);
 }
 
