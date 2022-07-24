@@ -6,37 +6,13 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 00:52:46 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/19 12:46:02 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/07/24 19:31:45 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		burn_ship(fract_t *t)
-{
-	mlx_clear_window(t->ptr, t->win);
-	t->y_real = 0;
-	while (t->y_real < HIGHT)
-	{
-		t->x_real = 0;
-		while (t->x_real < WIDTH)
-		{
-			t->iter = 0;
-			map(t);
-			iter_loop_bsh(t);
-			if (t->iter == t->max)
-				set_color(t, 0);
-			else
-				set_color(t, 1);
-			t->x_real++;
-		}
-		t->y_real++;
-	}
-	t->stop = 1;
-	mlx_ho(t);
-}
-
-void		julia(fract_t *t)
+void	julia(t_fract *t)
 {
 	mlx_clear_window(t->ptr, t->win);
 	t->y_real = 0;
@@ -47,7 +23,7 @@ void		julia(fract_t *t)
 		{
 			t->iter = 0;
 			map_julia(t);
-			iter_loop_mandelbrot(t);
+			looping(t);
 			if (t->iter == t->max)
 				set_color(t, 0);
 			else
@@ -59,7 +35,7 @@ void		julia(fract_t *t)
 	mlx_ho(t);
 }
 
-void		mandelbrot(fract_t *t)
+void	mandelbrot(t_fract *t)
 {
 	mlx_clear_window(t->ptr, t->win);
 	t->y_real = 0;
@@ -70,7 +46,7 @@ void		mandelbrot(fract_t *t)
 		{
 			t->iter = 0;
 			map(t);
-			iter_loop_mandelbrot(t);
+			looping(t);
 			if (t->iter == t->max)
 				set_color(t, 0);
 			else
