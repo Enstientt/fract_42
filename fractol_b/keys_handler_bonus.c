@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys_handler.c                                     :+:      :+:    :+:   */
+/*   keys_handler_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:21:15 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 15:46:12 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/07/31 14:20:07 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 static void	arrow_handler(int keycode, t_fract *t);
 
 static void	iter_handler(int keycode, t_fract *t);
+
+static void	color_handler(t_fract *t);
 
 int	key_handler(int keycode, t_fract *t)
 {
@@ -24,6 +26,8 @@ int	key_handler(int keycode, t_fract *t)
 		exit_handler(t);
 	if (keycode == 69 || keycode == 78)
 		iter_handler(keycode, t);
+	if (keycode == 8)
+		color_handler(t);
 	if (keycode == 49 && ft_strcmp(t->set, "j") == 0)
 	{
 		if (t->stop)
@@ -82,5 +86,11 @@ static void	iter_handler(int keycode, t_fract *t)
 		t->max += 8;
 	if (keycode == 78)
 		t->max -= 8;
+	draw_set(t);
+}
+
+static void	color_handler(t_fract *t)
+{
+	t->color += 2;
 	draw_set(t);
 }

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:21:10 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 19:02:46 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:47:42 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 static void	usage_message(void)
 {
-	ft_putstr_fd("usage: ./fractol <set name> | m  b  j\n", 1);
 	ft_putstr_fd(
-		"features : m and j buttons to switch from a set to another \n", 1);
+		"usage: ./fractol_bon <set name> | m  b  j\n", 1);
+	ft_putstr_fd(
+		"features : m , j and b (new set) buttons ", 1);
+	ft_putstr_fd("to switch from a set to an another \n", 1);
 	ft_putstr_fd(" \tarrows to navigate throw the set\n", 1);
 	ft_putstr_fd(" \tmouse while to zoom in and out\n", 1);
 	ft_putstr_fd(" \t + and - to add or substract max iteration\n", 1);
 	ft_putstr_fd(" \ti to return to the initial form of set\n", 1);
 	ft_putstr_fd(" \t space button to stop Julia set\n", 1);
+	ft_putstr_fd(" \tc button to switch colors\n", 1);
 }
 
 void	draw_set(t_fract *t)
@@ -49,7 +52,7 @@ void	init_env(t_fract *t, char *str)
 	t->zoom = 0;
 	t->stop = 0;
 	t->max = 40;
-	t->color = 6;
+	t->color = 10;
 	t->set = str;
 }
 

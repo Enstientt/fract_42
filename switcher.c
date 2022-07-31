@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 21:12:27 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/24 21:32:17 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/07/31 13:18:43 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,12 @@ void	switcher(int keycode, t_fract *t)
 {
 	if (keycode == 46)
 	{
-		init_env(t, "Mandelbrot");
+		init_env(t, "m");
 		draw_set(t);
 	}
 	if (keycode == 38)
 	{
-		init_env(t, "Julia");
-		draw_set(t);
-	}
-	if (keycode == 11)
-	{
-		init_env(t, "BurningShip");
+		init_env(t, "j");
 		draw_set(t);
 	}
 }

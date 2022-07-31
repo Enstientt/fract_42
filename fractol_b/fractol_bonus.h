@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 00:12:39 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 17:10:54 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/07/31 17:12:31 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # include <mlx.h>
 # include <stdlib.h>
@@ -60,6 +60,7 @@ void	julia(t_fract *t);
 void	init_env(t_fract *t, char *str);
 void	draw_set(t_fract *t);
 void	iter_loop_mandelbrot(t_fract *t);
+void	iter_loop_bsh(t_fract *t);
 void	set_color(t_fract *t, int color);
 void	switcher(int keycode, t_fract *t);
 void	map(t_fract *t);

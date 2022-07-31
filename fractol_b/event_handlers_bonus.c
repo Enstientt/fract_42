@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handlers.c                                   :+:      :+:    :+:   */
+/*   event_handlers_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 01:27:04 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 16:23:50 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/07/31 14:19:53 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include <stdio.h>
+#include "fractol_bonus.h"
 
 int	mouse_move(int x, int y, t_fract *t)
 {
@@ -25,14 +24,14 @@ int	mouse_move(int x, int y, t_fract *t)
 	return (1);
 }
 
-int	mouse_press(int btn, int x, int y, t_fract *t)
+int	mouse_press(int button, int x, int y, t_fract *t)
 {
-	if (btn == 5 && t->stop == 1)
+	if (button == 5 && t->stop == 1)
 	{
 		zoom(t, (double)x, (double)y, 1.1);
 		t->zoom_coff *= 1.101;
 	}
-	else if (btn == 4 && t->stop == 1)
+	else if (button == 4 && t->stop == 1)
 	{
 		zoom(t, (double)x, (double)y, 0.9);
 		t->zoom_coff /= 1.101;
@@ -46,8 +45,6 @@ void	zoom(t_fract *t, double x, double y, double zoom)
 	double	xx;
 	double	yy;
 
-	x = WIDTH / 2;
-	y = HIGHT / 2;
 	xx = ((x / WIDTH) * (t->end_x - t->start_x)) + t->start_x;
 	yy = ((y / HIGHT) * (t->end_y - t->start_y)) + t->start_y;
 	t->start_x = xx + ((t->start_x - xx) * zoom);
