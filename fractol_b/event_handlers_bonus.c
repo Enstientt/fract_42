@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 01:27:04 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 14:19:53 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/08/02 15:07:06 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,29 @@ int	mouse_press(int button, int x, int y, t_fract *t)
 {
 	if (button == 5 && t->stop == 1)
 	{
-		zoom(t, (double)x, (double)y, 1.1);
+		zoom_bonus(t, (double)x, (double)y, 1.1);
 		t->zoom_coff *= 1.101;
 	}
 	else if (button == 4 && t->stop == 1)
 	{
-		zoom(t, (double)x, (double)y, 0.9);
+		zoom_bonus(t, (double)x, (double)y, 0.9);
 		t->zoom_coff /= 1.101;
 	}
 	draw_set(t);
 	return (1);
 }
 
-void	zoom(t_fract *t, double x, double y, double zoom)
+void	zoom_bonus(t_fract *t, double x, double y, double zoom)
 {
-	double	xx;
-	double	yy;
+	double	x_map;
+	double	y_map;
 
-	xx = ((x / WIDTH) * (t->end_x - t->start_x)) + t->start_x;
-	yy = ((y / HIGHT) * (t->end_y - t->start_y)) + t->start_y;
-	t->start_x = xx + ((t->start_x - xx) * zoom);
-	t->start_y = yy + ((t->start_y - yy) * zoom);
-	t->end_y = yy + ((t->end_y - yy) * zoom);
-	t->end_x = xx + ((t->end_x - xx) * zoom);
+	x_map = ((x / WIDTH) * (t->end_x - t->start_x)) + t->start_x;
+	y_map = ((y / HIGHT) * (t->end_y - t->start_y)) + t->start_y;
+	t->start_x = x_map + ((t->start_x - x_map) * zoom);
+	t->start_y = y_map + ((t->start_y - y_map) * zoom);
+	t->end_y = y_map + ((t->end_y - y_map) * zoom);
+	t->end_x = x_map + ((t->end_x - x_map) * zoom);
 	if (t->max <= 120)
 		t->max += 2;
 }

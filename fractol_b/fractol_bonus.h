@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 00:12:39 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 17:12:31 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/08/03 19:16:28 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ typedef struct fract_s
 	int				stop;
 	int				color;
 	int				max;
-	int				mouse_x;
-	int				mouse_y;
 	void			*ptr;
 	void			*win;
 	void			*image;
@@ -64,10 +62,10 @@ void	iter_loop_bsh(t_fract *t);
 void	set_color(t_fract *t, int color);
 void	switcher(int keycode, t_fract *t);
 void	map(t_fract *t);
-void	zoom(t_fract *t, double x, double y, double zoom);
-void	mlx_ho(t_fract *t);
+void	zoom_bonus(t_fract *t, double x, double y, double zoom);
+void	my_mlx_hook(t_fract *t);
 void	map_julia(t_fract *t);
-void	looping(t_fract *t);
+void	looping_bonus(t_fract *t);
 void	ft_putstr_fd(char *str, int fd);
 int		ft_strcmp(char *s1, char *s2);
 int		mouse_move(int x, int y, t_fract *t);

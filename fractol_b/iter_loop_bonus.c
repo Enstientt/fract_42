@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 01:07:24 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 14:20:04 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:57:48 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	iter_loop_bsh(t_fract *t)
 	}
 }
 
-void	looping(t_fract *t)
+void	looping_bonus(t_fract *t)
 {
 	if (ft_strcmp(t->set, "m") == 0 || ft_strcmp(t->set, "j") == 0)
 		iter_loop_mandelbrot(t);

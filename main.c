@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:21:10 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 19:02:46 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:02:18 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static void	usage_message(void)
 {
-	ft_putstr_fd("usage: ./fractol <set name> | m  b  j\n", 1);
+	ft_putstr_fd("usage: ./fractol <set name> | m j\n", 1);
 	ft_putstr_fd(
 		"features : m and j buttons to switch from a set to another \n", 1);
-	ft_putstr_fd(" \tarrows to navigate throw the set\n", 1);
+	ft_putstr_fd(" \tarrows to navigate through the set\n", 1);
 	ft_putstr_fd(" \tmouse while to zoom in and out\n", 1);
 	ft_putstr_fd(" \t + and - to add or substract max iteration\n", 1);
 	ft_putstr_fd(" \ti to return to the initial form of set\n", 1);
@@ -30,11 +30,9 @@ void	draw_set(t_fract *t)
 		julia(t);
 	else if (ft_strcmp(t->set, "m") == 0)
 		mandelbrot(t);
-	else if (ft_strcmp("b", t->set) == 0)
-		mandelbrot(t);
 	else
 		ft_putstr_fd(
-			"usage: ./fractol <set name> | m  b  j\n", 1);
+			"usage: ./fractol <set name> | m  j\n", 1);
 }
 
 void	init_env(t_fract *t, char *str)
@@ -60,7 +58,6 @@ int	main(int ac, char *av[])
 	if (ac == 2)
 	{
 		if (ft_strcmp(av[1], "m") == 0
-			|| ft_strcmp(av[1], "b") == 0
 			|| ft_strcmp(av[1], "j") == 0)
 		{
 			t.ptr = mlx_init();

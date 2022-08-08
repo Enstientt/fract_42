@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 00:52:46 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/30 16:24:27 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/08/04 09:14:29 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	julia(t_fract *t)
 		}
 		t->y_real++;
 	}
-	mlx_ho(t);
+	my_mlx_hook(t);
 }
 
 void	mandelbrot(t_fract *t)
@@ -54,5 +54,5 @@ void	mandelbrot(t_fract *t)
 		t->y_real++;
 	}
 	t->stop = 1;
-	mlx_ho(t);
+	my_mlx_hook(t);
 }

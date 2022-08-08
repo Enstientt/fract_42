@@ -6,7 +6,7 @@
 #    By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 02:02:39 by zessadqu          #+#    #+#              #
-#    Updated: 2022/07/31 17:09:25 by zessadqu         ###   ########.fr        #
+#    Updated: 2022/08/04 11:14:38 by zessadqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,11 @@ CFLAGS = -Wall -Werror -Wextra
 
 NAME = fractol
 
-CC = @gcc
+CC = gcc
 
 BONUS = fractol_bon
 
-Header = fractol.h
-
-Header_bonus = fractol_b/fractol_bonus.h
+Headers = fractol.h fractol_b/fractol_bonus.h
 
 SRC = event_handlers.c \
 	  fracts.c main.c \
@@ -46,18 +44,14 @@ OBJS_bonus = $(SRC_bonus:.c=.o)
 
 MLX = -lmlx -framework OpenGL -framework AppKit
 
-OBJS = $(SRC:.c=.o)
-
-B_OBJS = $(SRC_bonus:.c=.o)
-
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@gcc $(FLAGS) $(OBJS) $(MLX) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(MLX) -o $(NAME)
 	@echo "run only the executable to see usage"
 
 clean :
-	@rm -f $(OBJS) $(B_OBJS)
+	@rm -f $(OBJS) $(OBJS_bonus)
 
 fclean : clean
 	@rm -f $(NAME) $(BONUS)
@@ -66,10 +60,9 @@ re : fclean all
 
 bonus : $(BONUS)
 
-$(BONUS) : $(B_OBJS)
-	@gcc $(FLAGS) $(B_OBJS) $(MLX) -o $(BONUS)
+$(BONUS) : $(OBJS_bonus)
+	$(CC) $(CFLAGS) $(OBJS_bonus) $(MLX) -o $(BONUS)
 	@echo "run only the executable to see usage"
 
-$(OBJS) : $(Header)
-
-$(B_OBJS) : $(Header_bonus)
+%.o: %.c $(Headers)
+	$(CC) $(CFLAGS) -c $< -o $@

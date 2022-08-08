@@ -6,7 +6,7 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:21:10 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 16:47:42 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/08/01 11:38:59 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	usage_message(void)
 	ft_putstr_fd(
 		"features : m , j and b (new set) buttons ", 1);
 	ft_putstr_fd("to switch from a set to an another \n", 1);
-	ft_putstr_fd(" \tarrows to navigate throw the set\n", 1);
+	ft_putstr_fd(" \tarrows to navigate through the set\n", 1);
 	ft_putstr_fd(" \tmouse while to zoom in and out\n", 1);
 	ft_putstr_fd(" \t + and - to add or substract max iteration\n", 1);
 	ft_putstr_fd(" \ti to return to the initial form of set\n", 1);

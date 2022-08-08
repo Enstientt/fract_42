@@ -6,12 +6,11 @@
 /*   By: zessadqu <zessadqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 01:27:04 by zessadqu          #+#    #+#             */
-/*   Updated: 2022/07/31 16:23:50 by zessadqu         ###   ########.fr       */
+/*   Updated: 2022/08/02 10:51:27 by zessadqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 int	mouse_move(int x, int y, t_fract *t)
 {
@@ -43,17 +42,17 @@ int	mouse_press(int btn, int x, int y, t_fract *t)
 
 void	zoom(t_fract *t, double x, double y, double zoom)
 {
-	double	xx;
-	double	yy;
+	double	x_map;
+	double	y_map;
 
 	x = WIDTH / 2;
 	y = HIGHT / 2;
-	xx = ((x / WIDTH) * (t->end_x - t->start_x)) + t->start_x;
-	yy = ((y / HIGHT) * (t->end_y - t->start_y)) + t->start_y;
-	t->start_x = xx + ((t->start_x - xx) * zoom);
-	t->start_y = yy + ((t->start_y - yy) * zoom);
-	t->end_y = yy + ((t->end_y - yy) * zoom);
-	t->end_x = xx + ((t->end_x - xx) * zoom);
+	x_map = ((x / WIDTH) * (t->end_x - t->start_x)) + t->start_x;
+	y_map = ((y / HIGHT) * (t->end_y - t->start_y)) + t->start_y;
+	t->start_x = x_map + ((t->start_x - x_map) * zoom);
+	t->start_y = y_map + ((t->start_y - y_map) * zoom);
+	t->end_y = y_map + ((t->end_y - y_map) * zoom);
+	t->end_x = x_map + ((t->end_x - x_map) * zoom);
 	if (t->max <= 120)
 		t->max += 2;
 }
